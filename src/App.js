@@ -1,23 +1,38 @@
-import logo from './logo.svg';
+import Home from './component/Home';
+import Blog from './component/Blog';
+import Contactus from './component/Contactus';
+import Aboutus from './component/About';
+import Navbar from './component/Navbar';
+import Furniture from './component/Furniture';
+import {Routes,Route} from 'react-router-dom';
+import ItemProvider from './component/context/ItemProvider';
+import BlogState from './component/context/BlogState';
 import './App.css';
 
+
+
+
+
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+ return (
+    
+    <div className="hero_area">
+        
+      <Navbar/>
+      <BlogState>
+      <ItemProvider >
+      <Routes>
+        <Route element={ <Home/>} path={'/'}/>
+        <Route element={ <Furniture />} path={'/Furniture'}/>
+        <Route element={ <Blog/>} path={'/Blog'}/>
+        <Route element={ <Contactus/>} path= {'/Contactus'}/>
+        <Route element={ <Aboutus/>} path={'/Aboutus'}/>
+     </Routes>
+     </ItemProvider>
+     </BlogState>
+      
+
     </div>
   );
 }
